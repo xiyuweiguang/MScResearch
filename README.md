@@ -1,4 +1,4 @@
-# Region-Aware GPU Push-Relabel Solver
+# Region-Aware GPU Push-Relabel Algorithm
 
 This README describes `newest_static_regionboundaryc.cu`, a CUDA/C++ implementation of an exact maximum-flow solver based on the push-relabel algorithm. The implementation is designed for large directed graphs and repeated source-sink queries. It uses a region-ordered CSR layout, query-level pruning, region-aware push-relabel kernels, frontier-based relabeling, region-aware residual repair, and sparse active-path discharge.
 
