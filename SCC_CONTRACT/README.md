@@ -25,24 +25,24 @@ Vertex IDs are expected to be 1-based. Self-loops, invalid vertices, and non-pos
 Usage:
 
 ```bash
-g++ -O3 -std=c++17 -o scc_contract scc_contract_english_comments.cpp
+g++ -O3 -std=c++17 -o scc_contract scc_contract.cpp
 ./scc_contract graph.txt graph_scc.txt
 ```
 
-### `convert_test_to_scc_english_comments.cpp`
+### `convert_test_to_scc.cpp`
 
 Converts every query endpoint in an original test/query file to its SCC component ID using `graph_scc.txt.map`.
 
 Usage:
 
 ```bash
-g++ -O3 -std=c++17 -o convert_test_to_scc convert_test_to_scc_english_comments.cpp
+g++ -O3 -std=c++17 -o convert_test_to_scc convert_test_to_scc.cpp
 ./convert_test_to_scc test.txt graph_scc.txt.map test_scc.txt
 ```
 
 If an endpoint is out of range or has no valid component ID, the program writes `0 0` for that query.
 
-### `split_queries_by_scc_english_comments.cpp`
+### `split_queries_by_scc.cpp`
 
 Splits query pairs into two groups:
 
@@ -52,7 +52,7 @@ Splits query pairs into two groups:
 Usage:
 
 ```bash
-g++ -O3 -std=c++17 -o split_queries_by_scc split_queries_by_scc_english_comments.cpp
+g++ -O3 -std=c++17 -o split_queries_by_scc split_queries_by_scc.cpp
 ./split_queries_by_scc test.txt graph_scc.txt.map test_inter.txt test_intra.txt
 ```
 
@@ -62,11 +62,11 @@ The program also writes an index file named `test_inter.txt.index`, which record
 
 ```bash
 # 1. Build SCC-contracted graph and original-to-component mapping.
-g++ -O3 -std=c++17 -o scc_contract scc_contract_english_comments.cpp
+g++ -O3 -std=c++17 -o scc_contract scc_contract.cpp
 ./scc_contract graph.txt graph_scc.txt
 
 # 2. Split queries according to whether endpoints are in the same SCC.
-g++ -O3 -std=c++17 -o split_queries_by_scc split_queries_by_scc_english_comments.cpp
+g++ -O3 -std=c++17 -o split_queries_by_scc split_queries_by_scc.cpp
 ./split_queries_by_scc test.txt graph_scc.txt.map test_inter.txt test_intra.txt
 
 # 3. Run inter-component queries on graph_scc.txt with test_inter.txt.
