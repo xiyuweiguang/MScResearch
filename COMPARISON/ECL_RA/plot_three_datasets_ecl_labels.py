@@ -347,10 +347,13 @@ def plot_figures(total_common: pd.DataFrame, comp_common: pd.DataFrame) -> None:
     plt.legend()
     plt.grid(True, axis="y", alpha=0.3)
 
+    ymax = max(max(ecl_means), max(region_means))
+    plt.ylim(top=ymax * 2.2)
+
     for i, speedup in enumerate(speedups):
         plt.text(
             i,
-            max(ecl_means[i], region_means[i]) * 1.25,
+            max(ecl_means[i], region_means[i]) * 1.08,
             f"{speedup:.1f}×",
             ha="center",
             va="bottom",
