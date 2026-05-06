@@ -1,6 +1,6 @@
 # Region-Aware GPU Push-Relabel Algorithm
 
-This README describes `newest_static_regionboundaryc.cu`, a CUDA/C++ implementation of an exact maximum-flow solver based on the push-relabel algorithm. The implementation is designed for large directed graphs and repeated source-sink queries. It uses a region-ordered CSR layout, query-level pruning, region-aware push-relabel kernels, frontier-based relabeling, region-aware residual repair, and sparse active-path discharge.
+This README describes `Region_Aware_PR_with_Pruning_BoundaryCore.cu`, a CUDA/C++ implementation of an exact maximum-flow solver based on the push-relabel algorithm. The implementation is designed for large directed graphs and repeated source-sink queries. It uses a region-ordered CSR layout, query-level pruning, region-aware push-relabel kernels, frontier-based relabeling, region-aware residual repair, and sparse active-path discharge.
 
 ## Main Features
 
@@ -134,13 +134,13 @@ The program also prints detailed diagnostic logs to `stderr`, including:
 Compile with `nvcc`:
 
 ```bash
-nvcc -O3 -o newest_static_regionboundaryc newest_static_regionboundaryc.cu
+nvcc -O3 -o newest_static_regionboundaryc Region_Aware_PR_with_Pruning_BoundaryCore.cu
 ```
 
 For debugging, you may use:
 
 ```bash
-nvcc -O0 -g -G -o newest_static_regionboundaryc_debug newest_static_regionboundaryc.cu
+nvcc -O0 -g -G -o newest_static_regionboundaryc_debug Region_Aware_PR_with_Pruning_BoundaryCore.cu
 ```
 
 ## Run
@@ -244,7 +244,7 @@ Example:
 
 ```bash
 mkdir -p out/test
-nvcc -O3 -o newest_static_regionboundaryc newest_static_regionboundaryc.cu
+nvcc -O3 -o newest_static_regionboundaryc Region_Aware_PR_with_Pruning_BoundaryCore.cu
 ./newest_static_regionboundaryc data/test out/test static 2> out/test/run.log
 cat out/test/res_mt.txt
 ```
